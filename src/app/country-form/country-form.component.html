@@ -1,0 +1,54 @@
+<form
+    #countryForm="ngForm"
+    class="card"
+    (ngSubmit)="selectCountry(countryForm.value)"
+    [formGroup]="form"
+>
+    <div class="card-body">
+        <div class="form-group">
+            <label for="form-country">Country</label>
+            <select
+                id="form-country"
+                class="form-control"
+                formControlName="country"
+            >
+                <option [value]="''">-- Please select a country --</option>
+                <ng-container *ngFor="let country of countries$ | async">
+                    <option [value]="country.Slug">
+                        {{ country.Country }}
+                    </option>
+                </ng-container>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary mr-2">Submit</button>
+        <button
+            type="button"
+            class="btn btn-secondary mr-2"
+            (click)="directShowCountry('malaysia')"
+        >
+            Show Malaysia
+        </button>
+        <button
+            type="button"
+            class="btn btn-secondary mr-2"
+            (click)="directShowCountry('singapore')"
+        >
+            Show Singapore
+        </button>
+        <button
+            type="button"
+            class="btn btn-secondary mr-2"
+            (click)="directShowCountry('thailand')"
+        >
+            Show Thailand
+        </button>
+        <button
+            type="button"
+            class="btn btn-secondary"
+            (click)="directShowCountry('indonesia')"
+        >
+            Show Indonesia
+        </button>
+    </div>
+</form>

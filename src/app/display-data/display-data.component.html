@@ -1,0 +1,31 @@
+<div class="table-responsive">
+    <table class="table table-bordered table-striped mb-0">
+        <thead>
+            <tr>
+                <th style="width: 1%">#</th>
+                <th>Date</th>
+                <th>Confirmed</th>
+                <th>Deaths</th>
+                <th>Recovered</th>
+                <th>Active</th>
+            </tr>
+        </thead>
+        <tbody>
+            <ng-container *ngIf="data.length === 0">
+                <tr>
+                    <td colspan="6" class="text-center">No data!</td>
+                </tr>
+            </ng-container>
+            <ng-container *ngIf="data.length > 0">
+                <tr *ngFor="let datum of data; let i = index">
+                    <td class="text-right">{{ i + 1 }}</td>
+                    <td>{{ datum.Date | date }}</td>
+                    <td class="text-right">{{ datum.Confirmed | number }}</td>
+                    <td class="text-right">{{ datum.Deaths | number }}</td>
+                    <td class="text-right">{{ datum.Recovered | number }}</td>
+                    <td class="text-right">{{ datum.Active | number }}</td>
+                </tr>
+            </ng-container>
+        </tbody>
+    </table>
+</div>
