@@ -1,12 +1,14 @@
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-
 import { CovidApiService } from './covid-api.service';
 
 describe('CovidApiService', () => {
     let service: CovidApiService;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({});
+        TestBed.configureTestingModule({
+            imports: [HttpClientTestingModule],
+        });
         service = TestBed.inject(CovidApiService);
     });
 
